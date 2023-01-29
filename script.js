@@ -186,7 +186,6 @@ class ShoppingCart extends Gallery {
 
     const index = this._item.length ? this._item.indexOf(this._item.at(-1)) : 0;
     i = index;
-    console.log(this._item);
 
     this._clearQuantity();
 
