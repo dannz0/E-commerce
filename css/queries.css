@@ -37,7 +37,7 @@
     background-color: #fff;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     padding: 0;
-    padding-top: calc(64rem / 16);
+    padding-top: calc(96rem / 16);
 
     font-weight: 700;
 
@@ -62,6 +62,7 @@
   }
 
   .nav-open {
+    /* padding-top: calc(200rem / 16); */
     opacity: 1;
     pointer-events: auto;
     visibility: visible;
