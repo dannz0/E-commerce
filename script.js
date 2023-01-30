@@ -153,6 +153,8 @@ class ShoppingCart extends Gallery {
       'click',
       this._productController.bind(this)
     );
+
+    this._getLocal();
   }
 
   _hover(e) {
@@ -190,6 +192,8 @@ class ShoppingCart extends Gallery {
     this._clearQuantity();
 
     this._renderCart(i);
+
+    this._setLocal();
   }
 
   _editAddQuantity() {
@@ -208,6 +212,8 @@ class ShoppingCart extends Gallery {
 
     this._cartItemsContainer.children[index].remove();
     this._item.splice(index, 1);
+
+    this._setLocal();
 
     if (!this._item.length) this._renderMsg();
   }
@@ -255,6 +261,27 @@ class ShoppingCart extends Gallery {
     `;
 
     this._cartItemsContainer.insertAdjacentHTML('beforeend', html);
+  }
+
+  _setLocal() {
+    localStorage.setItem('cart', JSON.stringify(this._item));
+  }
+
+  _getLocal() {
+    const cart = localStorage.getItem('cart');
+    this._item = JSON.parse(cart) || [];
+
+    if (!this._item.length) return;
+
+    this._cartItemsContainer.children[0].remove();
+
+    this._item.forEach((_, i) => {
+      this._renderCart(i);
+    });
+  }
+
+  clearStorage() {
+    localStorage.clear();
   }
 }
 
