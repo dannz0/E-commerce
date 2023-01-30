@@ -5,11 +5,11 @@ class MobileNav {
   _nav = document.querySelector('.nav');
 
   constructor() {
-    this._parentEl.addEventListener('click', this._openMenu.bind(this));
-    this._nav.addEventListener('click', this._closeMobileMenu.bind(this));
+    this._parentEl.addEventListener('click', this.openMenu.bind(this));
+    this._nav.addEventListener('click', this.closeMobileMenu.bind(this));
   }
 
-  _openMenu(e) {
+  openMenu(e) {
     const target = e.target.closest('.mobile-navbtn');
 
     if (!target) return;
@@ -17,7 +17,7 @@ class MobileNav {
     this._nav.classList.toggle('nav-open');
   }
 
-  _closeMobileMenu(e) {
+  closeMobileMenu(e) {
     const target = e.target.closest('.nav-link');
 
     if (!target) return;
@@ -43,28 +43,28 @@ class Gallery {
   _maxSlide = this._slides.length;
 
   constructor() {
-    this._mainGallery.addEventListener('click', this._openModal.bind(this));
+    this._mainGallery.addEventListener('click', this.openModal.bind(this));
     this._mainGallery.addEventListener('mouseover', this._hover.bind(this));
     this._gallery.forEach((g) =>
-      g.addEventListener('click', this._goToSlide.bind(this))
+      g.addEventListener('click', this.goToSlide.bind(this))
     );
 
-    this._lightbox.addEventListener('click', this._closeModal.bind(this));
+    this._lightbox.addEventListener('click', this.closeModal.bind(this));
     this._btnLightbox.addEventListener(
       'click',
-      this._lightboxBtnController.bind(this)
+      this.lightboxBtnController.bind(this)
     );
 
     this._slider();
   }
 
-  _openModal(e) {
+  openModal(e) {
     if (!e.target.src) return;
 
     this._lightbox.style.display = 'grid';
   }
 
-  _closeModal(e) {
+  closeModal(e) {
     const target =
       e.target.closest('.btn-close') || !e.target.closest('.lightbox');
 
@@ -86,7 +86,7 @@ class Gallery {
     });
   }
 
-  _goToSlide(e) {
+  goToSlide(e) {
     if (!e.target.src) return;
 
     this._curSlide = e.target.dataset.src?.at(-5) - 1;
@@ -113,7 +113,7 @@ class Gallery {
     this._slider(this._curSlide);
   }
 
-  _lightboxBtnController(e) {
+  lightboxBtnController(e) {
     if (e.target.closest('.btn-next')) this._nextSlide();
 
     if (e.target.closest('.btn-prev')) this._prevSlide();
@@ -139,7 +139,7 @@ class ShoppingCart extends Gallery {
 
     this._productOverlay.addEventListener(
       'click',
-      this._productController.bind(this)
+      this.productController.bind(this)
     );
 
     this._headerMiscBox.addEventListener('mouseover', this._hover.bind(this));
@@ -151,7 +151,7 @@ class ShoppingCart extends Gallery {
 
     this._cartItemsContainer.addEventListener(
       'click',
-      this._productController.bind(this)
+      this.productController.bind(this)
     );
 
     this._getLocal();
@@ -169,7 +169,7 @@ class ShoppingCart extends Gallery {
     this._cartDropdown.style.display = 'none';
   }
 
-  _productController(e) {
+  productController(e) {
     if (e.target.closest('.btn--addtocart')) this._addToCart();
 
     if (e.target.closest('.btn--minus')) this._editRemoveQuantity();
