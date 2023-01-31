@@ -88,6 +88,10 @@
     scale: 70%;
   }
 
+  .cart--number-box {
+    left: 22%;
+  }
+
   .cart-items--container img {
     border-radius: 12px;
   }
