@@ -112,6 +112,29 @@ img {
   cursor: pointer;
 }
 
+.cart--number-box {
+  width: calc(24rem / 16);
+  height: 100%;
+  position: absolute;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: -25%;
+  left: 15%;
+}
+
+.cart--number {
+  font-size: calc(12rem / 16);
+  font-weight: 700;
+
+  color: #fff;
+  background-color: hsl(26, 100%, 55%);
+  border-radius: 10px;
+  padding: calc(1rem / 16) calc(8rem / 16);
+  justify-self: center;
+}
+
 .cart img {
   padding: calc(8rem / 16);
   height: calc(35rem / 16);

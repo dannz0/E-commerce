@@ -128,6 +128,7 @@ class ShoppingCart extends Gallery {
   _cart = document.querySelector('.cart');
   _cartDropdown = document.querySelector('.cart-dropdown');
   _cartItemsContainer = document.querySelector('.cart-items--container');
+  _cartNumberBox = document.querySelector('.cart--number-box');
 
   _productName = document.querySelector('.product-title');
   _productPrice = document.querySelector('.price');
@@ -193,6 +194,8 @@ class ShoppingCart extends Gallery {
 
     this._renderCart(i);
 
+    this._renderCartNumber();
+
     this._setLocal();
   }
 
@@ -212,6 +215,8 @@ class ShoppingCart extends Gallery {
 
     this._cartItemsContainer.children[index].remove();
     this._item.splice(index, 1);
+
+    this._renderCartNumber();
 
     this._setLocal();
 
@@ -240,6 +245,15 @@ class ShoppingCart extends Gallery {
   _renderMsg() {
     this._cartItemsContainer.innerHTML =
       '<p class="cart-message">Cart is currently empty! 📦</p>';
+  }
+
+  _renderCartNumber() {
+    const html = `<p class="cart--number">${this._item.length}</p>`;
+
+    this._cartNumberBox.innerHTML = '';
+    this._cartNumberBox.insertAdjacentHTML('beforeend', html);
+
+    if (!this._item.length) this._cartNumberBox.children[0].remove();
   }
 
   _renderCart(i = 0) {
@@ -278,6 +292,8 @@ class ShoppingCart extends Gallery {
     this._item.forEach((_, i) => {
       this._renderCart(i);
     });
+
+    this._renderCartNumber();
   }
 
   clearStorage() {
