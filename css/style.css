@@ -39,6 +39,10 @@ img {
   box-shadow: 0 0 0 calc(5rem / 16) hsl(26, 100%, 55%);
 }
 
+button {
+  font-family: inherit;
+}
+
 /* //////////////////////// */
 /* HEADER */
 /* //////////////////////// */
@@ -550,8 +554,6 @@ img {
 .btn-addtocart--box {
   display: grid;
   grid-template-columns: 1fr;
-  align-items: center;
-  justify-content: center;
   border-radius: 12px;
   width: 100%;
   box-shadow: 0 7px 10px hsla(26, 100%, 55%, 0.308);
@@ -569,7 +571,10 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: calc(16rem / 16);
+}
+
+.btn--addtocart svg {
+  margin-right: calc(4rem / 16);
 }
 
 .btn--addtocart:hover {
