@@ -126,6 +126,8 @@ button {
   justify-content: center;
   top: -25%;
   left: 15%;
+
+  cursor: pointer;
 }
 
 .cart--number {
