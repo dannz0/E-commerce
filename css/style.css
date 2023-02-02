@@ -351,7 +351,8 @@ button {
 }
 
 .lightbox-img {
-  height: calc(75rem / 16);
+  /* height: calc(75rem / 16); */
+  width: 100%;
 
   justify-self: center;
 }
@@ -436,13 +437,15 @@ button {
 }
 
 .img-active {
-  height: calc(355rem / 16);
+  /* height: calc(355rem / 16); */
+  width: 100%;
   grid-column: 1 / -1;
   justify-self: center;
 }
 
 .gallery-img {
-  height: calc(76rem / 16);
+  /* height: calc(76rem / 16); */
+  width: 100%;
 }
 
 /* PRODUCT BOX */
@@ -450,6 +453,7 @@ button {
   display: grid;
   grid-template-columns: 1fr;
   gap: calc(32rem / 16);
+  width: 100%;
 }
 
 .product--text-box {
