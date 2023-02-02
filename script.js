@@ -265,7 +265,7 @@ class ShoppingCart extends Gallery {
 
             <div class="cart-text"> 
               <p>${this._item[i].name}</p>
-              <p>${this._item[i].price}$ x ${this._item[i].quantity}  <span>${this._item[i].totalPrice}</span></p>
+              <p>${this._item[i].price}$ x ${this._item[i].quantity}  <span>$${this._item[i].totalPrice}</span></p>
             </div>
 
             <div class="cart-delete--btn">
