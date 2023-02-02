@@ -144,6 +144,8 @@ button {
 .cart img {
   padding: calc(8rem / 16);
   height: calc(35rem / 16);
+
+  cursor: pointer;
 }
 
 .avatar {
